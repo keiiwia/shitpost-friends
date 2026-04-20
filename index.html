@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>slink.io.adulting</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- scrolling banner -->
+<div class="marquee-bar">
+  <span class="marquee-inner">
+    ~*~ WELCOME TO SLINK.IO.ADULTING ~*~ ★ ADD YOUR TRIPS ★ FIND YOUR PALS ★ WHERE R U?? 2K26 EDITION ★ POWERED BY OPENSTREETMAP ★ DATA STORED IN UR BROWSER ONLY ★ NO SERVERS NO PROBLEMS ~*~
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    ~*~ WELCOME TO SLINK.IO.ADULTING ~*~ ★ ADD YOUR TRIPS ★ FIND YOUR PALS ★ WHERE R U?? 2K26 EDITION ★ POWERED BY OPENSTREETMAP ★ DATA STORED IN UR BROWSER ONLY ★ NO SERVERS NO PROBLEMS ~*~
+  </span>
+</div>
+
+<!-- header -->
+<div class="site-header">
+  <div class="site-title">~*~ slink.io.adulting ~*~</div>
+  <div class="site-sub">✨ where r u?? find ur friends on the map!! ✨</div>
+  <div>
+    <span class="visitor-counter">👁 VISITOR COUNT: <span id="visitorCount">001337</span></span>
+  </div>
+  <div class="header-meta">
+    <span class="construction-bar"></span>&nbsp;ALWAYS UNDER CONSTRUCTION&nbsp;<span class="construction-bar"></span>
+    &nbsp;&nbsp;|&nbsp;&nbsp;last updated: <span id="lastUpdated"></span>
+    &nbsp;&nbsp;|&nbsp;&nbsp;best viewed in 800×600
+  </div>
+</div>
+
+<!-- main -->
+<div class="wrap">
+  <div class="sep">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</div>
+
+  <div class="cols">
+
+    <!-- left col -->
+    <div class="col-left">
+
+      <div class="panel">
+        <div class="panel-head">📡 room / sync</div>
+        <div class="panel-body" id="roomBody"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">✉ add ur trip !!</div>
+        <div class="panel-body">
+          <label>ur name:</label>
+          <input type="text" id="personName" placeholder="ie: kneecow" autocomplete="off">
+
+          <label>city / place:</label>
+          <input type="text" id="cityName" placeholder="ie: the fucking bay" autocomplete="off">
+
+          <label>arriving:</label>
+          <input type="date" id="startDate">
+
+          <label>leaving:</label>
+          <input type="date" id="endDate">
+
+          <button class="btn" id="addBtn" onclick="addTrip()">★ Add Trip ★</button>
+          <div class="status-msg" id="statusMsg"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          📍 all trips
+          <button class="btn-sm" onclick="clearAll()">clear all</button>
+        </div>
+        <div class="panel-body" style="overflow-x:auto; padding:8px;">
+          <table class="trip-table">
+            <thead>
+              <tr>
+                <th>who</th><th>where</th><th>from</th><th>to</th><th>✕</th>
+              </tr>
+            </thead>
+            <tbody id="tripList">
+              <tr><td colspan="5" class="empty-msg">no trips yet!</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- right col -->
+    <div class="col-right">
+      <div class="panel">
+        <div class="panel-head">🌍 world map — ur friends' paths!</div>
+        <div class="panel-body" style="padding:10px 10px 6px;">
+          <div id="mapContainer"></div>
+          <div class="map-credit">
+            map © <a href="https://carto.com/attributions" target="_blank">CARTO</a>
+            | data © <a href="https://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- overlaps -->
+  <div class="section-title">⭐ FRIEND MEETUP ZONES ⭐</div>
+  <div class="sep">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</div>
+  <div class="panel">
+    <div class="panel-head">🎉 where ur paths cross!!</div>
+    <div class="panel-body" id="overlapsList">
+      <p class="empty-msg">no overlaps yet... get ur friends to add their trips!! 🌟</p>
+    </div>
+  </div>
+
+  <div class="sep">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</div>
+</div>
+
+<div class="site-footer">
+  <p>ur gay</p>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
